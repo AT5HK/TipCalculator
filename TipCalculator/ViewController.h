@@ -10,6 +10,11 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)calculateTip:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *tipAmountLabel;
+@property (weak, nonatomic) IBOutlet UITextField *billAmountTextField;
+@property (weak, nonatomic) IBOutlet UITextField *tipPercentageTextField;
+- (IBAction)giveTip:(id)sender;
 
 @end
 

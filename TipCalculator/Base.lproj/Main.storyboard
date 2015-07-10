@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +17,94 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill owed" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WE3-q8-wuj" userLabel="Bill Amount">
+                                <rect key="frame" x="200" y="285" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="czQ-4G-6uL"/>
+                                    <constraint firstAttribute="width" secondItem="WE3-q8-wuj" secondAttribute="height" multiplier="10:3" id="zGG-WY-KIe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="czQ-4G-6uL"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1B-IC-iK1" userLabel="Calculate tip">
+                                <rect key="frame" x="210" y="426" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Calculate Tip">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="calculateTip:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ug9-gK-3Aj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggested Percent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXC-3T-kvk" userLabel="Show tip percentage">
+                                <rect key="frame" x="227" y="101" width="147" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tip" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-dm-gbh">
+                                <rect key="frame" x="300" y="285" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="8jS-b3-Pqd"/>
+                                    <constraint firstAttribute="width" secondItem="0dy-dm-gbh" secondAttribute="height" multiplier="97:30" id="CEd-3i-Hhd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8jS-b3-Pqd"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wk-dm-ehq" userLabel="Calculate tip">
+                                <rect key="frame" x="300" y="426" width="73" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Tip person">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="calculateTip:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Lyg-Zm-hc6"/>
+                                    <action selector="giveTip:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="esF-rr-s5z"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WE3-q8-wuj" firstAttribute="top" secondItem="VXC-3T-kvk" secondAttribute="bottom" constant="163" id="3pJ-Ez-y9L"/>
+                            <constraint firstItem="0dy-dm-gbh" firstAttribute="leading" secondItem="WE3-q8-wuj" secondAttribute="trailing" id="HbS-Af-Ets"/>
+                            <constraint firstItem="WE3-q8-wuj" firstAttribute="top" secondItem="VXC-3T-kvk" secondAttribute="bottom" constant="163" id="Pde-DU-Y4U"/>
+                            <constraint firstAttribute="centerX" secondItem="WE3-q8-wuj" secondAttribute="centerX" constant="50" id="Shl-bp-IPd"/>
+                            <constraint firstAttribute="centerX" secondItem="VXC-3T-kvk" secondAttribute="centerX" id="Tz1-Qe-PmD"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="h1B-IC-iK1" secondAttribute="bottom" constant="144" id="bri-bg-zQi"/>
+                            <constraint firstAttribute="centerY" secondItem="WE3-q8-wuj" secondAttribute="centerY" id="d4G-ku-wkq"/>
+                            <constraint firstAttribute="centerY" secondItem="0dy-dm-gbh" secondAttribute="centerY" id="ffS-JY-7mo"/>
+                            <constraint firstItem="h1B-IC-iK1" firstAttribute="top" secondItem="0dy-dm-gbh" secondAttribute="bottom" constant="111" id="iZd-nq-hJz"/>
+                            <constraint firstItem="VXC-3T-kvk" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="81" id="lNf-6O-oiB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0dy-dm-gbh" secondAttribute="trailing" constant="151" id="la1-ao-2Ix"/>
+                            <constraint firstItem="6Wk-dm-ehq" firstAttribute="leading" secondItem="h1B-IC-iK1" secondAttribute="trailing" id="nbJ-ca-AAb"/>
+                            <constraint firstAttribute="centerX" secondItem="h1B-IC-iK1" secondAttribute="centerX" constant="45" id="rLp-9v-1t4"/>
+                            <constraint firstItem="6Wk-dm-ehq" firstAttribute="top" secondItem="0dy-dm-gbh" secondAttribute="bottom" constant="111" id="xFs-Vv-W4X"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3pJ-Ez-y9L"/>
+                                <exclude reference="Pde-DU-Y4U"/>
+                                <exclude reference="la1-ao-2Ix"/>
+                                <exclude reference="bri-bg-zQi"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="billAmountTextField" destination="WE3-q8-wuj" id="Wph-P1-fYP"/>
+                        <outlet property="tipAmountLabel" destination="VXC-3T-kvk" id="A8d-Qj-5uZ"/>
+                        <outlet property="tipPercentageTextField" destination="0dy-dm-gbh" id="WXP-ME-AOs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
